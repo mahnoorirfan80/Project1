@@ -1,0 +1,166 @@
+.header {
+    display: flex;                     
+    justify-content: space-between;    
+    align-items: center;               
+    padding: 15px 30px;                
+    background-color: white;           
+    color: black;                      
+    position: fixed;                   
+    top: 0;                            
+    left: 0;                           
+    right: 0;                          
+    z-index: 1000;                     
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#logoContainer {                     
+    display: flex;                     
+    align-items: center; 
+    position: relative;                
+}
+
+.logoIcon {                          
+    margin-right: 10px; 
+    color: #FF5A5F;               
+}
+
+.logoName {                          
+    font-size: 25px;   
+    color: #FF5A5F;               
+}
+
+.navbar {
+    display: flex;
+    margin-left: auto; /* Push navbar links towards the right */
+}
+
+.navbar a {
+    margin: 0 20px;                   
+    color: black;                     
+    text-decoration: none;            
+    transition: color 0.3s;           
+    font-size: 20px;                  
+    line-height: 2;                   
+    position: relative;               
+    cursor: pointer; /* Change cursor to pointer for navbar links */
+}
+
+/* Style for active link */
+.navbar a.active {
+    color: black; /* Text color when active */
+    pointer-events: none; /* Disable hover effect on active link */
+}
+
+
+
+.navbar a::after {
+    content: '';                       
+    position: absolute;                
+    left: -10px;                       
+    right: -10px;                      
+    top: 0;                            
+    bottom: 0;                        
+    background-color: rgba(0, 0, 0, 0.1); 
+    border-radius: 20px;              
+    opacity: 0;                       
+    transition: opacity 0.3s;        
+    z-index: -1;   
+    width: calc(100% + 25px);        
+    left: -15px;                      
+}
+
+/* Hover effect for non-active links */
+.navbar a:not(.active):hover::after {
+    opacity: 0.8;                       
+}
+
+.right-side {
+    display: flex;                    
+    align-items: center;
+    margin-left: auto; /* Ensures the right-side content is pushed to the rightmost side */
+    gap: 20px; /* Space between the username, globe, and icons */
+}
+
+.username {
+    font-size: 20px; 
+    color: black;                    
+    position: relative;                
+    transition: color 0.3s; 
+    cursor: pointer; /* Change cursor to pointer for username */
+}
+
+
+
+/* Hover effect for username background */
+.username:hover::after {
+    opacity: 0.6; /* Keep the hover effect */
+}
+
+.username::after {
+    content: '';                       
+    position: absolute;                
+    left: -10px;                       
+    right: -10px;                      
+    top: 0;                            
+    bottom: 0;                        
+    background-color: rgba(0, 0, 0, 0.1); 
+    border-radius: 20px;              
+    opacity: 0;                       
+    transition: opacity 0.3s;        
+    z-index: -1;   
+    width: calc(100% + 25px);        
+    left: -15px;                      
+}
+.globeIcon {
+    color: black; /* Set the color */
+    margin: 0 10px; /* Add some margin for spacing */
+    cursor: pointer; 
+}
+
+/* Wrapper for the user and menu icons */
+.user-menu-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px; 
+    cursor: pointer;
+    position: relative;
+    border-radius: 30px;
+    border: 1px solid transparent; /* Thin border initially */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Permanent thin border */
+    margin-left: auto; /* Move it to the rightmost */
+    transition: background-color 0.3s, border 0.3s; /* Smooth hover transitions */
+}
+
+/* Hover effect for the user-menu-wrapper */
+.user-menu-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Transparent hover effect */
+    border: 1px solid rgba(0, 0, 0, 0.3); /* Thin border on hover */
+}
+
+/* Style for the menu bars icon */
+.menuIcon {
+    color: black;
+    font-size: 25px; /* Increased size */
+    margin-right: 10px; /* Space between the menu and user icon */
+}
+
+/* Style for the user icon */
+.userIcon {
+    color: black;
+    font-size: 25px; /* Increased size */
+}
+
+/* Globe icon styling */
+.globeIcon {
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Globe icon hover effect */
+.globeIcon:hover {
+    background-color: rgba(151, 147, 147, 0.1);
+    border-radius: 30px;
+    padding: 5px;
+}

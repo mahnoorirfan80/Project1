@@ -1,0 +1,69 @@
+.carousel-container {
+  position: fixed;
+  top: 80px;
+  width: 100vw; /* Ensure full width for the container */
+  display: flex;
+  z-index: 9999; /* Ensure it stays on top of other content */
+  background-color: white; /* Solid background for the icon bar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a lighter shadow */
+  padding: 2px 0; /* Minimal padding for reduced height */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow to separate it visually */
+  border-top: 2px solid rgba(0, 0, 0, 0.1); 
+}
+
+.icon-container {
+  display: flex;
+  transition: transform 0.9s ease-in-out;
+  margin: 0 40px; /* Add margin on the left and right to avoid button overlap */
+  padding: 5px 0; /* Minimal padding for reduced height */
+  gap: 10px; /* Adjust spacing between icons */
+  justify-content: center; /* Center the icons within the container */
+  background-color: white; /* Ensure the background is applied to the whole icon container */
+  z-index: 9999; /* Keep the icons on top of other content */
+}
+
+.icon-item {
+  flex: none; /* Prevents resizing of the icons */
+  width: 100px; /* Further reduce the icon size */
+  text-align: center;
+  display: flex; /* Center items horizontally */
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center;
+  padding: 2px; /* Minimal padding inside each icon */
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon-item p {
+  font-size: 14px; /* Reduce label text size */
+  margin-top: 2px; /* Minimal space between icon and text */
+}
+
+.icon-item:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#prevButtonC, #nextButtonC {
+  position: absolute;
+  top: 50%; /* Align the buttons vertically in the middle */
+  transform: translateY(-50%); /* Center the buttons vertically */
+  background: white;
+  border: none;
+  z-index: 10000;
+  cursor: pointer;
+  padding: 3px; /* Reduced padding for the buttons */
+}
+
+#prevButtonC {
+  left: 10px; /* Position the prev button to the far left */
+}
+
+#nextButtonC {
+  right: 17px; /* Position the next button to the far right */
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

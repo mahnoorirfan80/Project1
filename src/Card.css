@@ -1,0 +1,84 @@
+/* General container for the card */
+.container {
+  margin-top: 12%;
+  height: auto;
+  width: 23vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Flex container for the carousel images */
+.carousel-container-images {
+  display: flex;
+  width: 100%; /* Set to 100% to utilize the full width of the container */
+  height: 40vh;
+  top: 8%;
+  position: relative; /* Ensure child elements can position relative to this */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Container for the images */
+.image-container {
+  display: flex; 
+  transition: transform 0.5s ease; 
+}
+
+/* Individual images in the carousel */
+.image-item {
+  width: 20vw; /* Set fixed width for images */
+  height: 35vh; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for images */
+  object-fit: cover; /* Cover the entire space of the image */
+  transition: transform 0.5s ease;
+}
+
+/* Button styling */
+button {
+  background-color: transparent; /* Semi-transparent background */
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000; /* Ensure buttons appear above everything else */
+  position: absolute; /* Absolute positioning for buttons */
+  border-radius: 50%; /* Make the button circular */
+  background-color: white; /* Add a white background for the circle */
+  width: 30px; /* Define width of the circle */
+  height: 30px; /* Define height of the circle */
+  display: flex; /* Center the arrow icon */
+  border: none; /* Remove default button borders */
+  align-items: center; /* Vertically center the arrow */
+  justify-content: center; /* Horizontally center the arrow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Positioning for previous button */
+#prevButton {
+  left: 0%; /* Position previous button to the left */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+}
+
+/* Positioning for next button */
+#nextButton {
+  right: 14%; /* Position next button to the right */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+}
+
+/* Hover effect for buttons */
+#prevButton:hover, #nextButton:hover {
+  background-color: rgba(233, 227, 227, 0.8); /* Light gray on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Make the button disabled state less prominent */
+button:disabled {
+  opacity: 0.5; /* Reduce opacity */
+  cursor: not-allowed; /* Change cursor to indicate disabled state */
+}
+
+/* Styling for the text under the carousel */
+h5, p {
+  width: 20vw;
+}
