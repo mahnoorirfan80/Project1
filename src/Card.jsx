@@ -5,11 +5,18 @@ import './Card.css';
 
 function Card({ object }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalImages = object.images.length;
 
-  // Handlers for next and previous buttons
+  // Safely access images and filter out invalid URLs
+  const imageUrls = [
+    object?.images?.thumbnail_url || null,
+    object?.images?.medium_url || null,
+    object?.images?.picture_url || null,
+    object?.images?.xl_picture_url || null
+  ].filter(Boolean); // Remove null or undefined values
+
+  // Handlers for carousel navigation
   const nextSlide = () => {
-    if (currentIndex < totalImages - 1) {
+    if (currentIndex < imageUrls.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -21,44 +28,45 @@ function Card({ object }) {
   };
 
   return (
-    <div className='container'>
+    <div className="container1">
       <div className="carousel-container-images">
+        {/* Previous Button */}
         <button
           id="prevButton"
           onClick={prevSlide}
-          disabled={currentIndex === 0}
-          style={{ display: currentIndex === 0 ? 'none' : 'block' }} // Hide button when on the first image
+          disabled={currentIndex === 0 || imageUrls.length === 0}
+          style={{ display: currentIndex === 0 ? 'none' : 'block' }}
         >
           <FontAwesomeIcon icon={faBackward} size="1x" />
         </button>
 
+        {/* Image Container */}
         <div className="image-container">
-          {/* Show images in a row */}
-          {object.images.map((image, index) => (
+          {imageUrls.length > 0 ? (
             <img
-              key={index}
-              className={`image-item ${index === currentIndex ? 'active' : ''}`} // Add 'active' class for the current image
-              src={image}
-              alt={`Slide ${index + 1}`} // Added alt attribute for accessibility
-              style={{
-                display: index >= currentIndex - 1 && index <= currentIndex + 1 ? 'block' : 'none', // Show previous, current, and next images
-                width: '100%', // Ensure images take full width
-              }}
+              className="image-item"
+              src={imageUrls[currentIndex]}
+              alt={`Slide ${currentIndex + 1}`}
             />
-          ))}
+          ) : (
+            <p>No images available</p> // Handle missing images gracefully
+          )}
         </div>
 
+        {/* Next Button */}
         <button
           id="nextButton"
           onClick={nextSlide}
-          disabled={currentIndex >= totalImages - 1}
+          disabled={currentIndex >= imageUrls.length - 1 || imageUrls.length === 0}
         >
           <FontAwesomeIcon icon={faForward} size="1x" />
         </button>
       </div>
-      <h5>{object.location}</h5>
-      <p>{object.hostedby}</p>
-      <p>{object.price}</p>
+
+      {/* Object Details */}
+      <h5>{object?.name || 'Unknown Name'}</h5>
+      <p>{object?.host?.host_name || 'Unknown Host'}</p>
+      <p>{object?.price ? `$${object.price}` : 'Price not available'}</p>
     </div>
   );
 }
