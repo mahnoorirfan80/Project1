@@ -1,0 +1,18 @@
+.input1 {
+    width: 40%;
+   border: none;
+    padding: 5px;
+    outline: none; 
+}
+
+.input1:focus {
+    border: none; 
+    box-shadow: none; 
+}
+
+#bill_box {
+    border: 1px solid rgb(163, 157, 157);
+    padding: 5%;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+}

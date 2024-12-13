@@ -1,0 +1,26 @@
+
+#dropdown {
+    display: flex;
+    flex-direction: column;
+     /* Align nav items vertically */
+    flex-wrap: wrap; /* Allows items to wrap */
+    font-size: 1rem; /* Font size for nav items */
+    justify-content: left; /* Centers the nav items */
+    padding: 10%;
+     /* This allows the ul to take remaining space */
+}
+li 
+{
+    list-style-type: none;
+}
+ .dropdown_li a{
+    text-decoration: none;
+    color: #000;
+}
+.container
+{
+    width: 150%;
+    height:170px;
+    border: 1px solid black;
+    border-radius: 25px;
+}

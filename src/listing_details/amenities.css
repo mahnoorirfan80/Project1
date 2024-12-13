@@ -1,0 +1,12 @@
+#amenities {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  #amenities > div {
+    width: 50%; /* Each item will take up almost half of the width */
+    margin-bottom: 10px; /* Space between items in rows */
+  }
+  

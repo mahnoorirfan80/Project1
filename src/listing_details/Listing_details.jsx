@@ -1,14 +1,47 @@
-import React from 'react'
-import Navbar from '../home_page/navbar'
-// import TITLE from './TITLE.JSX'
-// import ListingData from './ListingData';
-function Listing_details() {
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import Navbar from "../navbar";
+import Hr from "../bookingpage/Hr";
+import Images from './Images'
+import './listing_details.css'
+import Details from '../bookingpage/Details'
+function ListingDetails() {
+  const { id } = useParams();
+  const [listing, setListing] = useState(null);
+
+  // Fetch the specific listing details
+  useEffect(() => {
+    const fetchListing = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/api/listing/${id}`);
+        setListing(response.data);
+      } catch (error) {
+        console.error('Error fetching listing details:', error);
+      }
+    };
+
+    fetchListing();
+  }, [id]);
+
+  if (!listing) return <div>Loading...</div>;
+
   return (
-    <div>
-      <Navbar/>
+    <>
+    <Navbar/>
+    <Hr />
+     <div className="listing-details">
+    
+      <h1 listing={listing}/>
+      <Images listing={listing}/>
+      <Details listing={listing}/>
+      <p>Hosted by: {listing.host.host_name}</p>
+      <p>Price: {listing.price}</p>
    
-    </div>
-  )
+      
+    </div></>
+   
+  );
 }
 
-export default Listing_details
+export default ListingDetails;

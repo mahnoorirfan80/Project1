@@ -19,5 +19,17 @@ router.get('/listings', (req, res) => {
       res.status(500).json({ message: 'Error fetching listings' });
     });
 });
-
+router.get('/listing/:id', async (req, res) => {
+  try {
+    const listing = await Listing.findById(req.params.id);
+    if (listing) {
+      res.json(listing);
+    } else {
+      res.status(404).json({ message: 'Listing not found' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Error fetching listing' });
+  }
+});
 export default router;  // Use export default to export the router
